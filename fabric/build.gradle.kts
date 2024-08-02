@@ -11,12 +11,6 @@ repositories {
     }
 }
 
-val minecraft_version: String by project
-val parchment_minecraft_version: String by project
-val parchment_mappings: String by project
-val fabric_version: String by project
-val loader_version: String by project
-
 dependencies {
     api(libs.bundles.adventure)
     api(project(":api", "shadow"))
@@ -26,17 +20,16 @@ dependencies {
     include(project(":api", "shadow"))
     include(project(":netty-common"))
 
-    // To change the versions, see the gradle.properties file
-    minecraft("com.mojang:minecraft:$minecraft_version")
+    minecraft(libs.minecraft)
     mappings(loom.layered {
         officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-$parchment_minecraft_version:$parchment_mappings")
+        parchment(libs.parchmentmc)
     })
 
-    modImplementation("net.fabricmc:fabric-loader:$loader_version")
+    modImplementation(libs.fabric.loader)
 
     // Fabric API. This is technically optional, but you probably want it anyway.
-    modImplementation("net.fabricmc.fabric-api:fabric-api:$fabric_version")
+    modImplementation(libs.fabric.api)
 }
 
 tasks {

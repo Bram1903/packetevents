@@ -10,6 +10,13 @@ bungeecord = "1.20-R0.1-SNAPSHOT"
 velocity = "3.1.0"
 run-paper = "2.3.0"
 
+# Fabric Versions (See https://fabricmc.net/develop for the latest versions)
+minecraft-version = "1.21"
+parchment-mappings = "2024.06.23"
+loader-version = "0.15.11"
+fabric-version = "0.100.7+1.21"
+fabric-loom = "1.7.2"
+
 [libraries]
 adventure-api = { group = "net.kyori", name = "adventure-api", version.ref = "adventure" }
 adventure-nbt = { group = "net.kyori", name = "adventure-nbt", version.ref = "adventure" }
@@ -28,6 +35,13 @@ paper = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper" 
 bungeecord = { group = "net.md-5", name = "bungeecord-api", version.ref = "bungeecord" }
 velocity = { group = "com.velocitypowered", name = "velocity-api", version.ref = "velocity" }
 
+# Fabric Libraries
+minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft-version" }
+# Update the name when updating the parchmentmc minecraft version and the mapping version in the top of this file
+parchmentmc = { group = "org.parchmentmc.data", name = "parchment-1.21", version.ref = "parchment-mappings" }
+fabric-loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "loader-version" }
+fabric-api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "fabric-version" }
+
 [bundles]
 adventure = [ "adventure-api", "adventure-nbt", "adventure-key", "adventure-examination-api", "adventure-examination-string" ]
 adventure-serializers = [ "adventure-text-serializer-gson", "adventure-text-serializer-json-legacy", "adventure-text-serializer-legacy" ]
@@ -35,4 +49,4 @@ adventure-serializers = [ "adventure-text-serializer-gson", "adventure-text-seri
 [plugins]
 run-paper = { id = "xyz.jpenilla.run-paper", version.ref = "run-paper" }
 run-velocity = { id = "xyz.jpenilla.run-velocity", version.ref = "run-paper" }
-fabric-loom = { id = "fabric-loom", version = "1.7.2" }
+fabric-loom = { id = "fabric-loom", version.ref = "fabric-loom" }
